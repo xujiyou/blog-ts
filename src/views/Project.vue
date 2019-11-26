@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="page" @scroll="scroll">
+        <div id="page">
             haha
         </div>
     </div>
@@ -8,18 +8,9 @@
 
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
-    import { Action } from 'vuex-class';
 
     @Component({})
     export default class Project extends Vue {
-        @Action("saveScrollTop")
-        saveScrollTop!: Function;
-
-        scroll() {
-            const page = document.querySelector("#page");
-            if (page === null) return;
-            this.saveScrollTop(page.scrollTop);
-        }
     }
 </script>
 

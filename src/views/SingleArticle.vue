@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="page" @scroll="scroll">
+        <div id="page">
             <div class="content">
                 <div class="article">
                     <button v-on:click="pop">返回</button>
@@ -26,9 +26,6 @@
 
         md = new MarkdownIt();
 
-        @Action("saveScrollTop")
-        saveScrollTop!: Function;
-
         @Action("viewArticleDetail", {namespace})
         viewArticleDetail!: Function;
 
@@ -41,12 +38,6 @@
                 technology: technology,
                 filename: filename
             });
-        }
-
-        scroll() {
-            const page = document.querySelector("#page");
-            if (page === null) return;
-            this.saveScrollTop(page.scrollTop);
         }
 
         pop() {

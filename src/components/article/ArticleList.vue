@@ -37,9 +37,6 @@
         @Action("findArticleList", {namespace})
         findArticleList!: Function;
 
-        @Action("savePathName")
-        savePathName!: Function;
-
         async mounted() {
             let category = this.$route.params["category"];
             let technology = this.$route.params["technology"];
@@ -50,7 +47,6 @@
         }
 
         push (category, technology, filename) {
-            this.savePathName("signal");
             this.$router.push(`/signal/${category}/${technology}/${filename}`);
         }
     }

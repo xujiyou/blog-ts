@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="page" @scroll="scroll">
+        <div id="page">
             <div class="content">
                 <div class="category">
                     <div class="title">云原生</div>
@@ -66,27 +66,13 @@
 
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
-    import { Action } from 'vuex-class';
 
     @Component({
         components: {}
     })
     export default class Category extends Vue {
 
-        @Action("saveScrollTop")
-        saveScrollTop!: Function;
-
-        @Action("savePathName")
-        savePathName!:Function;
-
-        scroll() {
-            const page = document.querySelector("#page");
-            if (page === null) return;
-            this.saveScrollTop(page.scrollTop);
-        }
-
         push (value, name) {
-            this.savePathName(name);
             this.$router.push(value);
         }
     }

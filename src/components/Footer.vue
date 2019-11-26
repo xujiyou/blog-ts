@@ -10,7 +10,7 @@
             <button @click="push('/article', 'article')">本站全部文章</button>
         </div>
 
-        <div class="bottom" v-if="pc">
+        <div class="bottom">
             <div class="link">
                 <h3>联系方式</h3>
                 <div>QQ & WX : 552003271</div>
@@ -28,34 +28,16 @@
                 <button>时间轴</button>
             </div>
         </div>
-        <div class="mobile-bottom" v-else>
-            <div class="mobile-link">
-                <h3>联系方式</h3>
-                <div>QQ & WX : 552003271</div>
-                <div>Github : 552003271</div>
-                <div>知乎 : 552003271</div>
-                <div class="copyright">
-                    © 2019 许吉友
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
 <script lang="ts">
     import { Component, Vue } from "vue-property-decorator";
-    import { State, Action } from 'vuex-class';
 
     @Component({})
     export default class Footer extends Vue {
-        @State("pc")
-        pc!: number;
-
-        @Action("savePathName")
-        savePathName!:Function;
 
         push (value, name) {
-            this.savePathName(name);
             this.$router.push(value);
         }
     }
@@ -184,23 +166,5 @@
     .copyright {
         padding-top: 20px;
         font-size: 14px;
-    }
-
-    /* 手机端样式 */
-    .mobile-bottom {
-        background-color: rgba(255, 255, 255, 0.6);
-        height: 200px;
-        width: 100%;
-        text-align: left;
-        color: #000;
-    }
-
-    .mobile-link {
-        padding-left: 16px;
-        height: 100%;
-    }
-
-    .mobile-link h3 {
-        padding-top: 10px;
     }
 </style>

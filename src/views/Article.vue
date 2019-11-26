@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div id="page" @scroll="scroll">
+        <div id="page">
             <div class="content">
                 <LeftList class="left-list"></LeftList>
                 <ArticleList class="article-title"></ArticleList>
@@ -13,21 +13,12 @@
     import LeftList from "@/components/article/LeftList.vue";
     import ArticleList from "@/components/article/ArticleList.vue";
     import { Component, Vue } from "vue-property-decorator";
-    import { Action } from 'vuex-class';
 
     @Component({
         components: { LeftList, ArticleList }
     })
     export default class Article extends Vue {
 
-        @Action("saveScrollTop")
-        saveScrollTop!: Function;
-
-        scroll() {
-            const page = document.querySelector("#page");
-            if (page === null) return;
-            this.saveScrollTop(page.scrollTop);
-        }
     }
 </script>
 

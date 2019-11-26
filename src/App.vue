@@ -2,7 +2,7 @@
     <div id="app">
         <canvas id="canvas"></canvas>
         <router-view id="router-view" v-transition></router-view>
-        <div id="nav">
+        <div id="nav" :class="{'is-scroll': scrollTop >= 100}">
             <div class="first">
                 <img src="../public/xu.jpeg" class="logo-img" alt="xu">
                 <div class="title" v-on:click="$router.push('/')">
@@ -30,9 +30,15 @@
     @Component({})
     export default class App extends Vue {
 
+        scrollTop = 0.0;
+
         mounted () {
             let canvas = document.querySelector("#canvas") as HTMLCanvasElement;
             animation.canvasAnimation(canvas);
+            window.addEventListener('scroll', (e) => {
+                if (e["srcElement"] === null) return;
+                this.scrollTop = e["srcElement"]["scrollTop"] as number;
+            }, true);
         }
     }
 </script>
@@ -92,39 +98,39 @@
 
         background-color: transparent;
         color: #fff;
+    }
 
-        a {
-            height: 32px;
-            background-color: transparent;
-            font-size: 16px;
-            cursor: pointer;
-            padding: 0;
-            margin-left: 16px;
-            margin-right: 16px;
-            color: white;
-            text-decoration: none;
+    a {
+        height: 32px;
+        background-color: transparent;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 0;
+        margin-left: 16px;
+        margin-right: 16px;
+        color: white;
+        text-decoration: none;
 
-            &.router-link-exact-active {
-                color: #17b5d2;
-            }
+        &.router-link-exact-active {
+            color: #17b5d2;
         }
+    }
 
-        a::after {
-            content:'';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #fff;
-            transition:all 0.3s ease-in-out;
-            transform: scale3d(0,1,1);
-            transform-origin: 50% 0;
-        }
+    a::after {
+        content:'';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #fff;
+        transition:all 0.3s ease-in-out;
+        transform: scale3d(0,1,1);
+        transform-origin: 50% 0;
+    }
 
-        a:hover::after {
-            transform: scale3d(1,1,1);
-        }
+    a:hover::after {
+        transform: scale3d(1,1,1);
     }
 
     .first {
@@ -173,7 +179,9 @@
         cursor: pointer;
         padding: 4px 12px 4px 12px;
         background-color: transparent;
-        border: 1px solid #fff;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #fff ;
         border-radius: 4px;
         color: #fff;
     }
@@ -183,6 +191,34 @@
         animation-fill-mode : forwards
     }
 
+    .is-scroll {
+        animation: bg-change 600ms 1;
+        animation-fill-mode : forwards;
+        color: #2c3e50;
+
+        button {
+            color: #2c3e50;
+            border-color: #2c3e50;
+        }
+
+        a {
+            color: #2c3e50;
+
+            &.router-link-exact-active {
+                color: #17b5d2;
+            }
+        }
+
+        a::after {
+            background-color: #2c3e50;
+        }
+
+        .footer button:hover {
+            animation: new-button-bg-color 600ms 1;
+            animation-fill-mode : forwards
+        }
+    }
+
     @keyframes button-bg-color {
         0% {
             background-color: transparent;
@@ -190,6 +226,27 @@
         }
         100% {
             background-color: #fff;
+            color: #2c3e50;
+        }
+    }
+
+    @keyframes new-button-bg-color {
+        0% {
+            background-color: transparent;
+        }
+        100% {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+    }
+
+    @keyframes bg-change {
+        0% {
+            background-color: transparent;
+            color: #fff;
+        }
+        100% {
+            background-color: rgba(255, 255, 255, 0.96);
             color: #2c3e50;
         }
     }

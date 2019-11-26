@@ -39,19 +39,12 @@
     import DataBaseAndStore from "@/components/home/DataBaseAndStore.vue";
     import Footer from "@/components/Footer.vue";
     import { Component, Vue } from "vue-property-decorator";
-    import { State, Action } from 'vuex-class';
 
     @Component({
         components: { HeaderBack, CloudNative, BigFront, BigData, DataBaseAndStore, Footer }
     })
     export default class Home extends Vue {
         active = 0;
-
-        @State("pc")
-        pc!: number;
-
-        @Action("saveScrollTop")
-        saveScrollTop!: Function;
 
         scroll() {
             const page = document.querySelector("#page");
@@ -74,7 +67,6 @@
                 }
             }
             this.active = navIndex;
-            this.saveScrollTop(scrollTop - offsetTopArr[1] / 3 * 2);
         }
 
         scrollTo (index) {
