@@ -6,8 +6,8 @@
             <div class="first">
                 <img src="../public/xu.jpeg" class="logo-img" alt="xu">
                 <div class="title" v-on:click="$router.push('/')">
-                    <div class="small">生命不息</div>
-                    <div class="big">折腾不止</div>
+                    <div class="small">受命于天</div>
+                    <div class="big">既寿永昌</div>
                 </div>
             </div>
             <router-link to="/">首页</router-link>

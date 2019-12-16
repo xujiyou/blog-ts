@@ -4,8 +4,8 @@
             <img src="../../public/xu.jpeg" id="logo-img" alt="xu">
             <br/>
             <div id="title">
-                <div class="small">生命不息</div>
-                <div class="big">折腾不止</div>
+                <div class="small">受命于天</div>
+                <div class="big">既寿永昌</div>
             </div>
             <button @click="push('/article', 'article')">本站全部文章</button>
         </div>

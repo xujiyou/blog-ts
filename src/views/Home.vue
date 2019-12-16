@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="page" @scroll="scroll">
-            <div id="anchor-point" :style="pc ? 'right: 60px' : 'right: 24px'">
+            <div id="anchor-point">
                 <div :class="{'container': true, 'container-active': active === 0}" @click="scrollTo(0)">
                     <div :class="{'circle': true, 'circle-active': active === 0}"></div>
                 </div>
@@ -138,6 +138,7 @@
         z-index: 100;
         margin-top: -120px;
         width: 12px;
+        right: 60px;
     }
 
     .container {
