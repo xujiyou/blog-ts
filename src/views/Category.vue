@@ -59,6 +59,36 @@
                     <button @click="push('/article/Java/Maven', 'article')">Maven</button>
                     <button @click="push('/article/Java/Gradle', 'article')">Gradle</button>
                 </div>
+                <div class="category">
+                    <div class="title">编程语言</div>
+                    <button @click="push('/article/Java/JVM', 'article')">Dart</button>
+                    <button @click="push('/article/Java/Spring', 'article')">Golang</button>
+                    <button @click="push('/article/Java/Netty', 'article')">JavaScript</button>
+                    <button @click="push('/article/Java/Maven', 'article')">Python</button>
+                    <button @click="push('/article/Java/Gradle', 'article')">Rust</button>
+                    <button @click="push('/article/编程语言/Scala', 'article')">Scala</button>
+                    <button @click="push('/article/Java/Gradle', 'article')">Swift</button>
+                    <button @click="push('/article/Java/Gradle', 'article')">TypeScript</button>
+                </div>
+                <div class="category">
+                    <div class="title">DevOps</div>
+                    <button @click="push('/article/Java/JVM', 'article')">Gitlab</button>
+                    <button @click="push('/article/Java/Spring', 'article')">Jenkins</button>
+                    <button @click="push('/article/Java/Netty', 'article')">SlatStack</button>
+                </div>
+                <div class="category">
+                    <div class="title">Linux</div>
+                    <button @click="push('/article/Java/JVM', 'article')">Sed</button>
+                    <button @click="push('/article/Java/Spring', 'article')">Awk</button>
+                </div>
+                <div class="category">
+                    <div class="title">其他</div>
+                    <button @click="push('/article/Java/JVM', 'article')">设计模式</button>
+                    <button @click="push('/article/Java/Spring', 'article')">计算机网络</button>
+                    <button @click="push('/article/Java/Netty', 'article')">数据结构与算法</button>
+                    <button @click="push('/article/Java/Netty', 'article')">区块链</button>
+                    <button @click="push('/article/Java/Netty', 'article')">TensorFlow</button>
+                </div>
             </div>
         </div>
     </div>
@@ -100,11 +130,13 @@
         display: inline-block;
         vertical-align: top;
         width: 23%;
+        margin-bottom: 20px;
         margin-left: 1%;
         margin-right: 1%;
     }
 
     .title {
+        text-align: left;
         font-weight: bold;
         font-size: 20px;
         width: 100%;

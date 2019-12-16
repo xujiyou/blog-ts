@@ -15,7 +15,7 @@ export class ArticleApi {
 
     async viewArticleDetail(category: string, technology: string, fileName: string) {
         // https://boot.xujiyou.work/api/article/view/${category}/${technology}/${fileName}
-        let response = await fetch(`https://boot.xujiyou.work/api/article/view/%E4%BA%91%E5%8E%9F%E7%94%9F/Docker/redis.md`, {
+        let response = await fetch(`https://boot.xujiyou.work/api/article/view/${category}/${technology}/${fileName}`, {
             method: "GET",
         });
         return await response.text();

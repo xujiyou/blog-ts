@@ -36,7 +36,7 @@
             this.article = await this.viewArticleDetail({
                 category: category,
                 technology: technology,
-                filename: filename
+                title: filename
             });
         }
 
@@ -64,8 +64,8 @@
     }
 
     .article {
-        margin-left: 100px;
-        margin-right: 100px;
+        margin-left: 20%;
+        margin-right: 20%;
         background-color: rgba(20, 20, 20, 0.4);
         border-radius: 8px;
         padding: 24px;
