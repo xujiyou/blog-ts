@@ -5,7 +5,7 @@
                 <div class="title">{{article.title}}</div>
                 <div class="date">{{article.create_date}}</div>
                 <div class="introduce">
-                    {{article.introduce}}{{article.introduce}}
+                    {{article.introduce}}
                 </div>
                 <div class="category">
                     <span>{{article.category}}</span> -  <span>{{article.technology}}</span>
